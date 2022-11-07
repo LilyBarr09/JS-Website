@@ -10,8 +10,14 @@
 	<link rel="stylesheet" href="./CSS/styles.css">
 	<link rel="stylesheet" href="./CSS/pages.css">
 	<title>folio</title>
+
+
+
+
+
 </head>
 <body>
+
 <main class="site-wrapper">
 	<header class="site-header">
 		<nav class="navbar">
@@ -21,23 +27,52 @@
 			<div class="navbar-nav">
 				<ul class="ul-defaults-none main-menu">
 					<li class="nav-item">Home</li>
-					<li class="nav-item">About Me</li>
-					<li class="nav-item">Contact</li>
+					<li class="nav-item" data-open="about">About Me</li>
+					<li class="nav-item" data-open="contact">Contact</li>
 				</ul>
 			</div>
 		</nav>
 	</header>
 
+	<!-- HERO SECTION -->
+	<section>
+		
+	</section>
+
+
+
 </main>
 
-<div class="full-site-modal page-block is-visible" data-animation="zoomInOut">
+<!-- MODALS: -->
+<!-- ABOUT PAGE MODAL -->
+<div id ="about" class="full-site-modal page-block" data-animation="zoomInOut">
 	<header class="modal-header">
 		<h3>ABOUT PAGE</h3>
-		<i class="fas fa-times"></i>
+		<i class="fas fa-times" data-close></i>
 	</header>
 	<div class="modal-body">
 		<div class="img-wrapper">
-			<img src="./assets/images/img2.jpg" alt="head shot">
+			<img src="./assets/images/img4.jpg" alt="head shot">
+		</div>
+		<h2>Liliana Barrera</h2>
+		<p>text 1</p>
+		<p>text 2</p>
+		<div>
+			<div>Email Me:</div>
+			<a href="mailto:barrera.jimnlil@gmail.com">barrera.jimnlil@gmail.com</a>
+		</div>
+	</div>
+</div>
+
+<!-- CONTACT PAGE MODAL -->
+<div id ="contact" class="full-site-modal page-block" data-animation="zoomInOut">
+	<header class="modal-header">
+		<h3>CONTACT PAGE</h3>
+		<i class="fas fa-times" data-close></i>
+	</header>
+	<div class="modal-body">
+		<div class="img-wrapper">
+			<img src="./assets/images/img4.jpg" alt="head shot">
 		</div>
 		<h2>Liliana Barrera</h2>
 		<p>text 1</p>
@@ -51,6 +86,20 @@
 
 
 
-	<script src="./JS/main.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="./JS/main.js"></script>
 </body>
 </html>
