@@ -30,6 +30,26 @@ const isVisible = 'is-visible';
 const openModal = document.querySelectorAll(modalOpen);
 const closeModal = document.querySelectorAll(modalClose);
 
+const setActive = (elm, selector) => {
+	if (document.querySelector(`${selector}.${active}`) !== null) {
+		document.querySelector(`${selector}.${active}`).classList.remove(active);
+	}
+	else {
+		elm.classList.add(active);
+	}
+};
+
+const setTheme = (val) => {
+	if (val === dark) {
+		root.setAttribute(dataTheme, dark);
+		localStorage.setItem(theme, dark);
+	}
+	else {
+		root.setAttribute(dataTheme, light);
+		localStorage.setItem(theme, light);
+	}
+};
+
 toggleTheme.addEventListener('click', function () {
 	const tab = this.parentElement.parentElement;
 	if (!tab.className.includes(open)) {
@@ -40,6 +60,13 @@ toggleTheme.addEventListener('click', function () {
 	}
 });
 
+for (const elm of switcher) {
+	elm.addEventListener('click', function () {
+		const toggle = this.dataset.toggle;
+		setActive(elm, switcherBtn);
+		setTheme(toggle);
+	})
+}
 
 //  iterate - Full-Site Modal "open buttons"
 for(const elm of openModal) {
