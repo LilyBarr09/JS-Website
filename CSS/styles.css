@@ -144,6 +144,12 @@
 	right: 10px;
 }
 
+.portfolio-grid {
+	max-width: 1400px;
+	width: 100%;
+	margin: 0 auto;
+}
+
 .portfolio-filter-nav {
 	display: flex;
 	flex-wrap: wrap;
@@ -163,7 +169,7 @@
 	cursor: pointer;
 }
 
-.portfolio-filter-nav .filter-link:hover {
+.portfolio-filter-nav .filter-link.active {
 	color: #495fef;
 }
 

@@ -8,6 +8,13 @@ const light = 'light'; // string for the data attribute
 const open = 'open'; //the css class applied to the theme panel
 const active = 'active'; // the css class applied to this
 
+// data-open and data-close are the data attributes we will apply to the elements that will trigger the modal to open
+const modalOpen = '[data-open]'; // stored in a node list to iterate
+const modalClose = '[data-close]';//stored in a node list which is iterable
+const isVisible = 'is-visible';
+
+const dataFilter = '[data-filter]';
+const portfolioData = '[data-item]';
 
 const root = document.documentElement;
 
@@ -16,16 +23,11 @@ const toggleTheme = document.querySelector(themeTab);
 const switcher = document.querySelectorAll(switcherBtn);
 const currentTheme = localStorage.getItem(theme);
 
-
-
+// PORTFOLIO
+const filterLink = document.querySelectorAll(dataFilter);
+const portfolioItems = document.querySelectorAll(portfolioData);
 
 //MODALS
-// data-open and data-close are the data attributes we will apply to the elements that will trigger the modal to open
-const modalOpen = '[data-open]'; // stored in a node list to iterate
-const modalClose = '[data-close]';//stored in a node list which is iterable
-const isVisible = 'is-visible';
-
-
 //find every single button/element that will trigger these modals in the html 
 const openModal = document.querySelectorAll(modalOpen);
 const closeModal = document.querySelectorAll(modalClose);
@@ -78,7 +80,25 @@ for (const elm of switcher) {
 		setActive(elm, switcherBtn);
 		setTheme(toggle);
 	})
-}
+};
+
+for (const link of filterLink) {
+	link.addEventListener('click', function () {
+		setActive(link, '.filter-link');
+		const filter = this.dataset.filter;
+		portfolioItems.forEach((card) => {
+			if (filter === 'all') {
+				card.style.display = 'block';
+			}
+			else if (card.dataset.item === filter) {
+				card.style.display = 'block';
+			}
+			else {
+				card.style.display = 'none';
+			}
+		})
+	})
+};
 
 // Full-Site Modal "open buttons"
 for(const elm of openModal) {
@@ -86,11 +106,11 @@ for(const elm of openModal) {
 		const modalId = this.dataset.open; // all data attributes with "open" assigned to them
 		document.getElementById(modalId).classList.add(isVisible);
 	})
-}
+};
 
 for(const elm of closeModal) {
 	elm.addEventListener('click', function() {
 		this.parentElement.parentElement.classList.remove(isVisible);
 	})
-}
+};
 
