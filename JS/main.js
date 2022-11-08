@@ -132,49 +132,49 @@ for(const elm of closeModal) {
 
 const portfolioCards = [
 	{
-	image: "1",
+	image: 1,
 	dataItem: "web",
 	title: "Web Development",
 	header: "Travel Website"
 },
 {
-	image: "2",
+	image: 2,
 	dataItem: "web",
 	title: "Web Development",
 	header: "Skate Website"
 },
 {
-	image: "3",
+	image: 3,
 	dataItem: "web",
 	title: "Web Development",
 	header: "Eating Website"
 },
 {
-	image: "4",
+	image: 4,
 	dataItem: "ui",
 	title: "UI Design",
 	header: "Cool Design"
 },
 {
-	image: "5",
+	image: 5,
 	dataItem: "app",
 	title: "App Development",
 	header: "Game App"
 },
 {
-	image: "6",
+	image: 6,
 	dataItem: "app",
 	title: "App Development",
 	header: "Shopping App"
 },
 {
-	image: "7",
+	image: 7,
 	dataItem: "app",
 	title: "App Development",
 	header: "Money App"
 },
 {
-	image: "8",
+	image: 8,
 	dataItem: "ui",
 	title: "UI Design",
 	header: "Fantastic Design"
@@ -182,7 +182,7 @@ const portfolioCards = [
 ];
 
 
-const createPortfolioCards = (card) => {
+const createPortfolioCards = (image, data, title, header) => {
 	const portfolioCard = document.createElement("div");
 	const portfolioContainer = document.createElement("div");
 	const portfolioImage = document.createElement("img");
@@ -192,13 +192,13 @@ const createPortfolioCards = (card) => {
 
 	
 	portfolioCard.setAttribute("class", "portfolio-card");
-	portfolioCard.setAttribute("data-item", card.data);
+	portfolioCard.setAttribute("data-item", data);
 	portfolioContainer.setAttribute("class", "card-body");
-	portfolioImage.setAttribute("src", `/assets/images/portfolio-${card.imgNumber}.jpg`);
+	portfolioImage.setAttribute("src", `/assets/images/portfolio-${image}.jpg`);
 	portfolioLInk.setAttribute("href", "#");
 	portfolioLink.setAttribute("class", "card-popup-box");
-	portfolioTitle.innerHTML = card.title;
-	portfolioHeader.innerHTML = card.header;
+	portfolioTitle.innerHTML = title;
+	portfolioHeader.innerHTML = header;
 
 	
 	portfolioLink.appendChild(portfolioTitle);
