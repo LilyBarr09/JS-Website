@@ -128,3 +128,94 @@ for(const elm of closeModal) {
 	})
 };
 
+
+
+const portfolioCards = [
+	{
+	image: "1",
+	dataItem: "web",
+	title: "Web Development",
+	header: "Travel Website"
+},
+{
+	image: "2",
+	dataItem: "web",
+	title: "Web Development",
+	header: "Skate Website"
+},
+{
+	image: "3",
+	dataItem: "web",
+	title: "Web Development",
+	header: "Eating Website"
+},
+{
+	image: "4",
+	dataItem: "ui",
+	title: "UI Design",
+	header: "Cool Design"
+},
+{
+	image: "5",
+	dataItem: "app",
+	title: "App Development",
+	header: "Game App"
+},
+{
+	image: "6",
+	dataItem: "app",
+	title: "App Development",
+	header: "Shopping App"
+},
+{
+	image: "7",
+	dataItem: "app",
+	title: "App Development",
+	header: "Money App"
+},
+{
+	image: "8",
+	dataItem: "ui",
+	title: "UI Design",
+	header: "Fantastic Design"
+},
+];
+
+
+const createPortfolioCards = (card) => {
+	const portfolioCard = document.createElement("div");
+	const portfolioContainer = document.createElement("div");
+	const portfolioImage = document.createElement("img");
+	const portfolioLink = document.createElement("a");
+	const portfolioTitle = document.createElement("div");
+	const portfolioHeader = document.createElement("h3");
+
+	
+	portfolioCard.setAttribute("class", "portfolio-card");
+	portfolioCard.setAttribute("data-item", card.data);
+	portfolioContainer.setAttribute("class", "card-body");
+	portfolioImage.setAttribute("src", `/assets/images/portfolio-${card.imgNumber}.jpg`);
+	portfolioLInk.setAttribute("href", "#");
+	portfolioLink.setAttribute("class", "card-popup-box");
+	portfolioTitle.innerHTML = card.title;
+	portfolioHeader.innerHTML = card.header;
+
+	
+	portfolioLink.appendChild(portfolioTitle);
+	portfolioLink.appendChild(portfolioHeader);
+	portfolioContainer.appendChild(portfolioImage);
+	portfolioContainer.appendChild(portfolioLink);
+	portfolioCard.appendChild(portfolioContainer);
+
+	document.querySelector(".portfolio-grid").appendChild(portfolioCard);
+	
+};
+
+
+portfolioCards.forEach((card) => {
+	createPortfolioCards(card);
+});
+
+// Object.entries(portfolioCards).forEach(([key, value]) => {
+// 	createPortfolioCards(key, value);
+// })
