@@ -114,7 +114,99 @@ for (const link of filterLink) {
 	})
 };
 
-// Full-Site Modal "open buttons"
+// const portfolioCards = [
+// 	{
+// 	image: 1,
+// 	dataItem: "web",
+// 	// dataOpen: "web-1",
+// 	title: "Web Development",
+// 	header: "Travel Website"
+// },
+// {
+// 	image: 2,
+// 	dataItem: "web",
+// 	title: "Web Development",
+// 	header: "Skate Website"
+// },
+// {
+// 	image: 3,
+// 	dataItem: "web",
+// 	title: "Web Development",
+// 	header: "Eating Website"
+// },
+// {
+// 	image: 4,
+// 	dataItem: "ui",
+// 	title: "UI Design",
+// 	header: "Cool Design"
+// },
+// {
+// 	image: 5,
+// 	dataItem: "app",
+// 	title: "App Development",
+// 	header: "Game App"
+// },
+// {
+// 	image: 6,
+// 	dataItem: "app",
+// 	title: "App Development",
+// 	header: "Shopping App"
+// },
+// {
+// 	image: 7,
+// 	dataItem: "app",
+// 	title: "App Development",
+// 	header: "Money App"
+// },
+// {
+// 	image: 8,
+// 	dataItem: "ui",
+// 	title: "UI Design",
+// 	header: "Fantastic Design"
+// },
+// ];
+
+
+// const createPortfolioCards = ({image, dataItem, dataOpen, title, header}) => {
+// 	const portfolioCard = document.createElement("div");
+// 	const portfolioContainer = document.createElement("div");
+// 	const portfolioImage = document.createElement("img");
+// 	const portfolioLink = document.createElement("a");
+// 	const portfolioTitle = document.createElement("div");
+// 	const portfolioHeader = document.createElement("h3");
+
+	
+// 	portfolioCard.className = "portfolio-card";
+// 	portfolioCard.setAttribute(`data-item`, dataItem);
+// 	// portfolioCard.setAttribute('data-open', dataOpen);
+// 	portfolioContainer.className = "card-body";
+// 	portfolioImage.src = `/assets/images/portfolio-${image}.jpg`;
+// 	portfolioLink.href = "#";
+// 	portfolioLink.className = "card-popup-box";
+
+
+// 	portfolioTitle.innerHTML = title;
+// 	portfolioHeader.innerHTML = header;
+
+
+// 	portfolioCard.appendChild(portfolioContainer);
+// 	portfolioContainer.appendChild(portfolioImage);
+// 	portfolioContainer.appendChild(portfolioLink);
+// 	portfolioLink.appendChild(portfolioTitle);
+// 	portfolioLink.appendChild(portfolioHeader);
+	
+// 	console.log(portfolioCard);
+
+// document.querySelector(".portfolio-grid").appendChild(portfolioCard);
+	
+// };
+
+
+// portfolioCards.forEach((card) => {
+// 	createPortfolioCards(card);
+// });
+
+// Modal/Full-Site Modal "open buttons"
 for(const elm of openModal) {
 	elm.addEventListener('click', function() {
 		const modalId = this.dataset.open; // all data attributes with "open" assigned to them
@@ -124,98 +216,6 @@ for(const elm of openModal) {
 
 for(const elm of closeModal) {
 	elm.addEventListener('click', function() {
-		this.parentElement.parentElement.classList.remove(isVisible);
+		this.parentElement.parentElement.parentElement.classList.remove(isVisible);
 	})
 };
-
-
-
-const portfolioCards = [
-	{
-	image: 1,
-	dataItem: "web",
-	title: "Web Development",
-	header: "Travel Website"
-},
-{
-	image: 2,
-	dataItem: "web",
-	title: "Web Development",
-	header: "Skate Website"
-},
-{
-	image: 3,
-	dataItem: "web",
-	title: "Web Development",
-	header: "Eating Website"
-},
-{
-	image: 4,
-	dataItem: "ui",
-	title: "UI Design",
-	header: "Cool Design"
-},
-{
-	image: 5,
-	dataItem: "app",
-	title: "App Development",
-	header: "Game App"
-},
-{
-	image: 6,
-	dataItem: "app",
-	title: "App Development",
-	header: "Shopping App"
-},
-{
-	image: 7,
-	dataItem: "app",
-	title: "App Development",
-	header: "Money App"
-},
-{
-	image: 8,
-	dataItem: "ui",
-	title: "UI Design",
-	header: "Fantastic Design"
-},
-];
-
-
-const createPortfolioCards = ({image, dataItem, title, header}) => {
-	const portfolioCard = document.createElement("div");
-	const portfolioContainer = document.createElement("div");
-	const portfolioImage = document.createElement("img");
-	const portfolioLink = document.createElement("a");
-	const portfolioTitle = document.createElement("div");
-	const portfolioHeader = document.createElement("h3");
-
-	
-	portfolioCard.className = "portfolio-card";
-	portfolioCard.setAttribute(`data-item`, dataItem);
-	portfolioContainer.className = "card-body";
-	portfolioImage.src = `/assets/images/portfolio-${image}.jpg`;
-	portfolioLink.href = "#";
-	portfolioLink.className = "card-popup-box";
-
-
-	portfolioTitle.innerHTML = title;
-	portfolioHeader.innerHTML = header;
-
-
-	portfolioCard.appendChild(portfolioContainer);
-	portfolioContainer.appendChild(portfolioImage);
-	portfolioContainer.appendChild(portfolioLink);
-	portfolioLink.appendChild(portfolioTitle);
-	portfolioLink.appendChild(portfolioHeader);
-	
-console.log(portfolioCard);
-
-	document.querySelector(".portfolio-grid").appendChild(portfolioCard);
-	
-};
-
-
-portfolioCards.forEach((card) => {
-	createPortfolioCards(card);
-});
