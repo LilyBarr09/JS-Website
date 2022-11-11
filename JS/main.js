@@ -182,7 +182,7 @@ const portfolioCards = [
 ];
 
 
-const createPortfolioCards = (image, data, title, header) => {
+const createPortfolioCards = ({image, dataItem, title, header}) => {
 	const portfolioCard = document.createElement("div");
 	const portfolioContainer = document.createElement("div");
 	const portfolioImage = document.createElement("img");
@@ -191,21 +191,25 @@ const createPortfolioCards = (image, data, title, header) => {
 	const portfolioHeader = document.createElement("h3");
 
 	
-	portfolioCard.setAttribute("class", "portfolio-card");
-	portfolioCard.setAttribute("data-item", data);
-	portfolioContainer.setAttribute("class", "card-body");
-	portfolioImage.setAttribute("src", `/assets/images/portfolio-${image}.jpg`);
-	portfolioLInk.setAttribute("href", "#");
-	portfolioLink.setAttribute("class", "card-popup-box");
+	portfolioCard.className = "portfolio-card";
+	portfolioCard.setAttribute(`data-item`, dataItem);
+	portfolioContainer.className = "card-body";
+	portfolioImage.src = `/assets/images/portfolio-${image}.jpg`;
+	portfolioLink.href = "#";
+	portfolioLink.className = "card-popup-box";
+
+
 	portfolioTitle.innerHTML = title;
 	portfolioHeader.innerHTML = header;
 
-	
-	portfolioLink.appendChild(portfolioTitle);
-	portfolioLink.appendChild(portfolioHeader);
+
+	portfolioCard.appendChild(portfolioContainer);
 	portfolioContainer.appendChild(portfolioImage);
 	portfolioContainer.appendChild(portfolioLink);
-	portfolioCard.appendChild(portfolioContainer);
+	portfolioLink.appendChild(portfolioTitle);
+	portfolioLink.appendChild(portfolioHeader);
+	
+console.log(portfolioCard);
 
 	document.querySelector(".portfolio-grid").appendChild(portfolioCard);
 	
@@ -215,7 +219,3 @@ const createPortfolioCards = (image, data, title, header) => {
 portfolioCards.forEach((card) => {
 	createPortfolioCards(card);
 });
-
-// Object.entries(portfolioCards).forEach(([key, value]) => {
-// 	createPortfolioCards(key, value);
-// })
