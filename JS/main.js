@@ -219,3 +219,16 @@ for(const elm of closeModal) {
 		this.parentElement.parentElement.parentElement.classList.remove(isVisible);
 	})
 };
+
+// MODAL
+document.addEventListener('click', (e) => {
+	console.log(e.target, document.querySelector('.modal.is-visible'));
+	if(e.target === document.querySelector('.modal.is-visible'))
+	document.querySelector('.modal.is-visible').classList.remove(isVisible);
+});
+
+document.addEventListener('keyup', (e) => {
+	console.log(e.key);
+	if(e.key === 'Escape')
+	document.querySelector('.modal.is-visible').classList.remove(isVisible);
+});
