@@ -174,44 +174,32 @@ const portfolioCards = [
 ];
 
 
-// const createPortfolioCards = ({image, dataItem, dataOpen, title, header}) => {
-// 	const portfolioCard = document.createElement("div");
-// 	const portfolioContainer = document.createElement("div");
-// 	const portfolioImage = document.createElement("img");
-// 	const portfolioLink = document.createElement("a");
-// 	const portfolioTitle = document.createElement("div");
-// 	const portfolioHeader = document.createElement("h3");
-
+const createPortfolioCards = ({image, dataItem, dataOpen, title, header}) => {
+	const portfolioCard = document.createElement("div");
 	
-// 	portfolioCard.className = "portfolio-card";
-// 	portfolioCard.setAttribute(`data-item`, dataItem);
-// 	// portfolioCard.setAttribute('data-open', dataOpen);
-// 	portfolioContainer.className = "card-body";
-// 	portfolioImage.src = `/assets/images/portfolio-${image}.jpg`;
-// 	portfolioLink.href = "#";
-// 	portfolioLink.className = "card-popup-box";
+	portfolioCard.className = "portfolio-card";
+	portfolioCard.setAttribute(`data-item`, dataItem);
+	portfolioCard.setAttribute(`data-open`, dataOpen);
 
+	portfolioCard.innerHTML += `
+	<div class ="card-body">
+		<img src="/assets/images/portfolio-${image}.jpg" alt= "portfolio icon">
+		<div class= "card-popup-box">
+			<div>${title}</div>
+			<h3>${header}</h3>
+		</div>
+	</div>
+`;
 
-// 	portfolioTitle.innerHTML = title;
-// 	portfolioHeader.innerHTML = header;
+console.log(portfolioCards);
 
-
-// 	portfolioCard.appendChild(portfolioContainer);
-// 	portfolioContainer.appendChild(portfolioImage);
-// 	portfolioContainer.appendChild(portfolioLink);
-// 	portfolioLink.appendChild(portfolioTitle);
-// 	portfolioLink.appendChild(portfolioHeader);
+document.querySelector(".portfolio-grid").appendChild(portfolioCard);
 	
-// 	console.log(portfolioCard);
+};
 
-// document.querySelector(".portfolio-grid").appendChild(portfolioCard);
-	
-// };
-
-
-// portfolioCards.forEach((card) => {
-// 	createPortfolioCards(card);
-// });
+portfolioCards.forEach((card) => {
+	createPortfolioCards(card);
+});
 
 // Modal/Full-Site Modal "open buttons"
 for(const elm of openModal) {
