@@ -114,57 +114,64 @@ for (const link of filterLink) {
 	})
 };
 
-// const portfolioCards = [
-// 	{
-// 	image: 1,
-// 	dataItem: "web",
-// 	// dataOpen: "web-1",
-// 	title: "Web Development",
-// 	header: "Travel Website"
-// },
-// {
-// 	image: 2,
-// 	dataItem: "web",
-// 	title: "Web Development",
-// 	header: "Skate Website"
-// },
-// {
-// 	image: 3,
-// 	dataItem: "web",
-// 	title: "Web Development",
-// 	header: "Eating Website"
-// },
-// {
-// 	image: 4,
-// 	dataItem: "ui",
-// 	title: "UI Design",
-// 	header: "Cool Design"
-// },
-// {
-// 	image: 5,
-// 	dataItem: "app",
-// 	title: "App Development",
-// 	header: "Game App"
-// },
-// {
-// 	image: 6,
-// 	dataItem: "app",
-// 	title: "App Development",
-// 	header: "Shopping App"
-// },
-// {
-// 	image: 7,
-// 	dataItem: "app",
-// 	title: "App Development",
-// 	header: "Money App"
-// },
-// {
-// 	image: 8,
-// 	dataItem: "ui",
-// 	title: "UI Design",
-// 	header: "Fantastic Design"
-// },
-// ];
+const portfolioCards = [
+	{
+	image: 1,
+	dataItem: "web",
+	dataOpen: "web-1",
+	title: "Web Development",
+	header: "Travel Website"
+},
+{
+	image: 2,
+	dataItem: "web",
+	dataOpen: "web-2",
+	title: "Web Development",
+	header: "Skate Website"
+},
+{
+	image: 3,
+	dataItem: "web",
+	dataOpen: "web-3",
+	title: "Web Development",
+	header: "Eating Website"
+},
+{
+	image: 4,
+	dataItem: "ui",
+	dataOpen: "ui-1",
+	title: "UI Design",
+	header: "Cool Design"
+},
+{
+	image: 5,
+	dataItem: "app",
+	dataOpen: "app-1",
+	title: "App Development",
+	header: "Game App"
+},
+{
+	image: 6,
+	dataItem: "app",
+	dataOpen: "app-2",
+	title: "App Development",
+	header: "Shopping App"
+},
+{
+	image: 7,
+	dataItem: "app",
+	dataOpen: "app-3",
+	title: "App Development",
+	header: "Money App"
+},
+{
+	image: 8,
+	dataItem: "ui",
+	dataOpen: "ui-2",
+	title: "UI Design",
+	header: "Fantastic Design"
+},
+];
 
 
 // const createPortfolioCards = ({image, dataItem, dataOpen, title, header}) => {
