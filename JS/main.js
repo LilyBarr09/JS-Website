@@ -225,3 +225,15 @@ document.addEventListener('keyup', (e) => {
 	if(e.key === 'Escape')
 	document.querySelector('.modal.is-visible').classList.remove(isVisible);
 });
+
+// get elements displayed
+// node list length
+// assign --marquee-elms node list length
+const elmsDisplayed = getComputedStyle(root).getPropertyValue('--marquee-elms-displayed');
+const marqueeContent = document.querySelector('ul.marquee-content');
+
+root.style.setProperty('--marquee-elms', marqueeContent.children.length);
+
+for (let i = 0; i < elmsDisplayed; i =+ 1) {
+	marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
+}
