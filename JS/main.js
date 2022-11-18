@@ -18,11 +18,10 @@ const portfolioData = '[data-item]';
 
 const root = document.documentElement;
 
-// THEME
+// THEME - THEME LIGHT/DARK JS:
 const toggleTheme = document.querySelector(themeTab);
 const switcher = document.querySelectorAll(switcherBtn);
 const currentTheme = localStorage.getItem(theme);
-
 
 const setActive = (elm, selector) => {
 	if (document.querySelector(`${selector}.${active}`) !== null) {
@@ -74,6 +73,7 @@ for (const elm of switcher) {
 	})
 };
 
+// PORTFOLIO CARDS DYNAMIC HTML DATA
 const portfolioCards = [
 	{
 	image: 1,
@@ -133,11 +133,10 @@ const portfolioCards = [
 },
 ];
 
-
 const createPortfolioCards = ({image, dataItem, dataOpen, title, header}) => {
 	const portfolioCard = document.createElement("div");
-	
-	portfolioCard.className = "portfolio-card";
+	// portfolioCard.className = "portfolio-card";
+	portfolioCard.classList.add('portfolio-card');
 	portfolioCard.setAttribute(`data-item`, dataItem);
 	portfolioCard.setAttribute(`data-open`, dataOpen);
 
@@ -202,8 +201,125 @@ for (const link of filterLink) {
 	})
 };
 
+const popupCards = [
+	{
+		id: 'web-1',
+		dataAnimation: 'slideInOutTop',
+		header3: 'Web Project 1',
+		icon: 'fas fa-times',
+		data: 'data-close',
+		image: 1,
+		title: 'My first awesome website',
+		text:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et posuere massa. Nulla eget mauris tincidunt',
+	},
+	{
+		id: 'web-2',
+		dataAnimation: 'slideInOutTop',
+		header3: 'Web Project 2',
+		icon: 'fas fa-times',
+		data: 'data-close',
+		image: 2,
+		title: 'My first awesome website',
+		text:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et posuere massa. Nulla eget mauris tincidunt',
+	},
+	{
+		id: 'web-3',
+		dataAnimation: 'slideInOutTop',
+		header3: 'Web Project 3',
+		icon: 'fas fa-times',
+		data: 'data-close',
+		image: 3,
+		title: 'My first awesome website',
+		text:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et posuere massa. Nulla eget mauris tincidunt',
+	},
+	{
+		id: 'ui-1',
+		dataAnimation: 'slideInOutTop',
+		header3: 'UI Project 1',
+		icon: 'fas fa-times',
+		data: 'data-close',
+		image: 4,
+		title: 'My first awesome website',
+		text:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et posuere massa. Nulla eget mauris tincidunt',
+	},
+	{
+		id: 'app-1',
+		dataAnimation: 'slideInOutTop',
+		header3: 'App Project 1',
+		icon: 'fas fa-times',
+		data: 'data-close',
+		image: 5,
+		title: 'My first awesome website',
+		text:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et posuere massa. Nulla eget mauris tincidunt',
+	},
+	{
+		id: 'app-2',
+		dataAnimation: 'slideInOutTop',
+		header3: 'App Project 2',
+		icon: 'fas fa-times',
+		data: 'data-close',
+		image: 6,
+		title: 'My first awesome website',
+		text:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et posuere massa. Nulla eget mauris tincidunt',
+	},
+	{
+		id: 'app-3',
+		dataAnimation: 'slideInOutTop',
+		header3: 'App Project 3',
+		icon: 'fas fa-times',
+		data: 'data-close',
+		image: 7,
+		title: 'My first awesome website',
+		text:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et posuere massa. Nulla eget mauris tincidunt',
+	},
+	{
+		id: 'ui-2',
+		dataAnimation: 'slideInOutTop',
+		header3: 'UI Project 2',
+		icon: 'fas fa-times',
+		data: 'data-close',
+		image: 8,
+		title: 'My first awesome website',
+		text:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et posuere massa. Nulla eget mauris tincidunt',
+	},
+];
 
-// Modal/Full-Site Modal "open buttons"
+const createPopupCards = ({id, dataAnimation, header, icon, data, image, title, text}) => {
+	const popupCard = document.createElement("div");
+	popupCard.setAttribute('id', id);
+	popupCard.classList.add('modal');
+	popupCard.setAttribute(`data-animation`, dataAnimation);
+
+	popupCard.innerHTML += `
+	<div class="modal-dialogue">
+		<header class="modal-header">
+			<h3>${header}</h3>
+			<i class=${icon} ${data}></i>
+		</header>
+		<div class="modal-body">
+			<div class="img-wrapper">
+				<img src="/assets/images/portfolio-${image}.jpg" alt="portfolio image">
+			</div>
+			<div class="text-wrapper">
+				<p><strong>${title}</strong></p>
+				<p>${text}</p>
+				<p>${text}</p>
+			</div>
+		</div>
+	</div>
+`;
+
+console.log(popupCards);
+
+document.querySelector('.site-wrapper').appendChild(popupCard);
+	
+};
+
+popupCards.forEach((card) => {
+	createPopupCards(card);
+});
+
+// MODALS/Full-Site Modal "open buttons"
 for(const elm of openModal) {
 	elm.addEventListener('click', function() {
 		const modalId = this.dataset.open; // all data attributes with "open" assigned to them
@@ -229,11 +345,10 @@ document.addEventListener('keyup', (e) => {
 });
 
 // get elements displayed
+const elmsDisplayed = getComputedStyle(root).getPropertyValue('--marquee-elms-displayed');
 // node list length
 // assign --marquee-elms node list length
-// const elmsDisplayed = getComputedStyle(root).getPropertyValue('--marquee-elms-displayed');
 const marqueeContent = document.querySelector('ul.marquee-content');
-
 root.style.setProperty('--marquee-elms', marqueeContent.children.length);
 
 for (let i = 0; i < elmsDisplayed; i += 1) {
